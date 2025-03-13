@@ -12,7 +12,7 @@ import { Upload, FileText, CheckCircle, AlertCircle, ChevronDown, ChevronUp } fr
 
 interface ResumeResult {
   top_resumes: string[];
-  scores: { reason: string; score: number }[];
+  scores: { reason: string; score: number; attrition_risk: number }[];
 }
 
 export default function Home() {
@@ -202,6 +202,13 @@ export default function Home() {
                             <h4 className="font-medium text-sm mb-2">AI Feedback</h4>
                             <p className="text-sm text-gray-600">
                               {results.scores[index].reason}
+                            </p>
+                          </div>
+
+                          <div className="mt-4">
+                            <h4 className="font-medium text-sm mb-2">Attrition Risk</h4>
+                            <p className="text-sm text-gray-600">
+                              {results.scores[index].attrition_risk}%
                             </p>
                           </div>
 

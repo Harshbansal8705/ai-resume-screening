@@ -17,7 +17,7 @@ llm = ChatTogether(
 # Function to get LLM score for a resume
 def score_resume(resume: str, jd: str):
     prompt = f"""
-    You are an HR expert. Evaluate the following resume against the given job description and provide a score out of 100.
+    You are an HR expert. Evaluate the following resume against the given job description and provide a score out of 100 along with attrition risk out of 100.
 
     **Job Description:**
     {jd}
@@ -31,7 +31,7 @@ def score_resume(resume: str, jd: str):
     - 60-80 = Moderate match
     - Below 60 = Weak match
 
-    Strictly note that you only need to return the score as a number along with a reason in json format with the key "score" (which is a number) and "reason" (which is a string).
+    Strictly note that you only need to return the score as a number along with a atrrition risk out of 100 and reason in json format with the key "score" (which is a number), "attrition_risk" (number) and "reason" (which is a string).
     """
 
     response = llm.invoke(
